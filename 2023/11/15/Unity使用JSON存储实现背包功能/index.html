@@ -1,219 +1,160 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-  
-  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>Hexo</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  
-  
-
-    <!-- Site Verification -->
-    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-
-  <link rel="shortcut icon" href="/images/head/head.jpg" type="image/png" />
-  <meta name="description" content="Unity使用JSON存储实现背包功能前言在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。 一、PlayerPrefs这是Unity自带的一种用于本地持久化保存与读取的一个类,采用以键值对的形式将数据保存在文件中。  123456int IntValue;float FloatValue;String StringValue;PlayerPrefs.SetFloat(&amp;quot">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Unity使用JSON存储实现背包功能前言在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。 一、PlayerPrefs这是Unity自带的一种用于本地持久化保存与读取的一个类,采用以键值对的形式将数据保存在文件中。  123456int IntValue;float FloatValue;String StringValue;PlayerPrefs.SetFloat(&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Unity使用JSON存储实现背包功能前言在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。 一、PlayerPrefs这是Unity自带的一种用于本地持久化保存与读取的一个类,采用以键值对的形式将数据保存在文件中。  123456int IntValue;float FloatValue;String StringValue;PlayerPrefs.SetFloat(&amp;quot">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/280e3589b5d70df516b4e622039247cb.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/808a6ab2b54ed5bba7eb6b0716ea855f.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c62b4b0eca4af6441b5f0080e0607871.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7c345c86497e3c381a1dfd81adce9877.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/56ee6a6f5deca611a2d51714f9b5e19b.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/17cf36e19832494aa57ede112c0fdbb9.gif#pic_center">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-11-15T15:08:16.149Z">
 <meta property="article:modified_time" content="2023-11-15T15:08:16.149Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/280e3589b5d70df516b4e622039247cb.png">
-  <link rel="stylesheet" href="https://lib.baomitu.com/highlight.js/9.15.8/styles/atom-one-dark.min.css" crossorigin>
-  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
-  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="https://lib.baomitu.com/justifiedGallery/3.8.1/css/justifiedGallery.min.css">
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
-  
-  <link rel="stylesheet" href="/css/style.css?v=1714707678530">
-<meta name="generator" content="Hexo 7.2.0"></head>
-
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(/images/background/xiaomai.jpg)"></div>
-    <div class="nexmoe-small" style="background-image: url(/images/background/lihui.png)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head.jpg" alt="John Doe"></a>
-       </div>
-    </div>
-  </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="John Doe">
-            <img src="/images/head/head.jpg" alt="John Doe" alt="John Doe">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div class="nexmoe-count-item"><span>Articles</span>2 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
-        <div class="nexmoe-count-item"><span>Tags</span>0<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-        <div class="nexmoe-count-item"><span>Categories</span>0<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
-            <div class="mdui-list-item-content">
-                文章归档
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于糖糖">
-            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
-            <div class="mdui-list-item-content">
-                关于糖糖
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
-            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
-            <div class="mdui-list-item-content">
-                我的朋友
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/download.html" title="下载中心">
-            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
-            <div class="mdui-list-item-content">
-                下载中心
-            </div>
-        </a>
-        
-    </div>
-    <aside id="nexmoe-sidebar">
-  
-  
-<!-- 站内搜索 -->
-
-<div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search" >
-        <form id="search-form">
-            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
-            <!-- 清空/重置搜索框 -->
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-        </form>
-    </div>
-    <div id="local-search-result"></div> <!-- 搜索结果区 -->
-    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
-</div>
-
-
-  
-  <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2120252100&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
-            <i class="nexmoefont icon-QQ"></i>
-        </a><a class="mdui-ripple" href="mailto:tangyuxian@vip.qq.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
-            <i class="nexmoefont icon-mail-fill"></i>
-        </a><a class="mdui-ripple" href="https://blog.csdn.net/qq_40621378?type=blog" target="_blank" mdui-tooltip="{content: 'CSDN'}" style="color: rgb(199,29,35);background-color: rgba(199,29,35,.1);">
-            <i class="nexmoefont icon-csdn"></i>
-        </a><a class="mdui-ripple" href="https://www.cnblogs.com/lovetangyuxian/" target="_blank" mdui-tooltip="{content: '博客园'}" style="color: rgb(66, 214, 29);background-color: rgba(66, 214, 29, .1);">
-            <i class="nexmoefont icon-bokeyuan"></i>
-        </a><a class="mdui-ripple" href="https://github.com/tangyuxian/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a><a class="mdui-ripple" href="https://gitee.com/tangyuxian" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
-            <i class="nexmoefont icon-mayun"></i>
-        </a>
-    </div>
-</div>
-  
-  
-
-  
-  
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Archive</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-<style>
-.nexmoe-widget .archive-list-count{
-	position : absolute;
-	right: 15px;
-	top:9px;
-	color: #DDD;
-}
-</style>
-
-  
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2024 John Doe
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
-        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
-        
-        <div style="font-size: 12px">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
-            本站访客数<a id="busuanzi_value_site_uv"></a>人次
-        </div>
-        
-        
-    </div>
-
-</div><!-- .nexmoe-drawer -->
-
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-15 23:08:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <div class="nexmoe-post-cover"
-             style="padding-bottom: 24.305555555555554%;">
-            <img data-src="/images/background/xiaomai.jpg" data-sizes="auto" alt="" class="lazyload">
-            <h1></h1>
-        </div>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2023年11月15日</a>
-    <a><i class="nexmoefont icon-areachart"></i>3.1k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 16 分钟</a>
-</div>
-
-        <div class="nexmoe-post-right">
-            
-        </div>
-
-        <article>
-            <h1 id="Unity使用JSON存储实现背包功能"><a href="#Unity使用JSON存储实现背包功能" class="headerlink" title="Unity使用JSON存储实现背包功能"></a>Unity使用JSON存储实现背包功能</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。</p>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-15T15:08:16.149Z" title="Created 2023-11-15 23:08:16">2023-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-15T15:08:16.149Z" title="Updated 2023-11-15 23:08:16">2023-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Unity使用JSON存储实现背包功能"><a href="#Unity使用JSON存储实现背包功能" class="headerlink" title="Unity使用JSON存储实现背包功能"></a>Unity使用JSON存储实现背包功能</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。</p>
 <h3 id="一、PlayerPrefs"><a href="#一、PlayerPrefs" class="headerlink" title="一、PlayerPrefs"></a>一、PlayerPrefs</h3><p>这是Unity自带的一种用于本地持久化保存与读取的一个类,采用以键值对的形式将数据保存在文件中。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/img_convert/280e3589b5d70df516b4e622039247cb.png" alt="PlayerPrefs" class="lazyload"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/280e3589b5d70df516b4e622039247cb.png" alt="PlayerPrefs"></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> IntValue;</span><br><span class="line"><span class="built_in">float</span> FloatValue;</span><br><span class="line">String StringValue;</span><br><span class="line">PlayerPrefs.SetFloat(<span class="string">&quot;FloatKey&quot;</span>,FloatValue);	<span class="comment">//存储float类型的值，对应的键为FloatKey</span></span><br><span class="line">PlayerPrefs.SetInt(<span class="string">&quot;IntKey&quot;</span>,IntValue);	<span class="comment">//存储int类型的值，对应的键为IntKey</span></span><br><span class="line">PlayerPrefs.SetString(<span class="string">&quot;StringKey&quot;</span>,StringValue);	<span class="comment"><span class="doctag">///</span>/存储string类型的值，对应的键为StringKey</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="二、读取普通文本-TextAsset"><a href="#二、读取普通文本-TextAsset" class="headerlink" title="二、读取普通文本:TextAsset"></a>二、读取普通文本:TextAsset</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextAsset text=(TextAsset)Resources.Load(<span class="string">&quot;Text&quot;</span>);</span><br><span class="line">Debug.Log(text.text);</span><br></pre></td></tr></table></figure>
@@ -225,17 +166,17 @@
 <h2 id="具体实现方法"><a href="#具体实现方法" class="headerlink" title="具体实现方法"></a>具体实现方法</h2><h3 id="一、背包UI界面创建"><a href="#一、背包UI界面创建" class="headerlink" title="一、背包UI界面创建"></a>一、背包UI界面创建</h3><p>本教程使用的UI资源来自Unity Assets Store中的免费资源<a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/2d/gui/simple-fantasy-gui-99451">SIMPLE FANTASY GUI</a>和<a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811">Fantasy Wooden GUI : Free</a>。</p>
 <h4 id="1、创建Canvas画布"><a href="#1、创建Canvas画布" class="headerlink" title="1、创建Canvas画布"></a>1、创建Canvas画布</h4><p>创建一个Canvas（UI画布），然后在Canvas下创建一个Image,命名为Bag，放入图片，作为背包背景，将其缩放到合适大小，放置到合适位置。</p>
 <p>在创建一个DragCanvas，并将<strong>sort order</strong>值设置为1，使其内的UI始终高于Canvas的UI显示，后面需要用到。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/img_convert/808a6ab2b54ed5bba7eb6b0716ea855f.png" alt="Bag" class="lazyload"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/808a6ab2b54ed5bba7eb6b0716ea855f.png" alt="Bag"></p>
 <h4 id="2、添加组件"><a href="#2、添加组件" class="headerlink" title="2、添加组件"></a>2、添加组件</h4><p>然后添加<strong>Grid Layout Group</strong>组件，用来控制其子物体的排序格式。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/img_convert/c62b4b0eca4af6441b5f0080e0607871.png" alt="Grid" class="lazyload"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c62b4b0eca4af6441b5f0080e0607871.png" alt="Grid"></p>
 <p><strong>CellSize</strong>：每个子物体的大小。</p>
 <p><strong>Spacing</strong>：每个子物体之间的间隔。</p>
 <p><strong>Start Corner</strong>：子物体的起始角落。</p>
 <p><strong>Start Axis</strong>：子物体起始轴线。</p>
 <h4 id="3、创建物品格"><a href="#3、创建物品格" class="headerlink" title="3、创建物品格"></a>3、创建物品格</h4><p>在Bag下创建一个Image，命名为Slot，如上添加图片，然后复制，达到想要的背包效果。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/img_convert/7c345c86497e3c381a1dfd81adce9877.png" alt="Slot" class="lazyload"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7c345c86497e3c381a1dfd81adce9877.png" alt="Slot"></p>
 <h4 id="4、创建Item"><a href="#4、创建Item" class="headerlink" title="4、创建Item"></a>4、创建Item</h4><p>在Slot下创建一个Image，命名为Item，用来显示物品的图片，然后在Item下创建一个Text，用来显示物品的数字。将Item制作为预设体，方便后期使用。</p>
-<h4 id="5、最终层级关系"><a href="#5、最终层级关系" class="headerlink" title="5、最终层级关系"></a>5、最终层级关系</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/img_convert/56ee6a6f5deca611a2d51714f9b5e19b.png" alt="层级关系" class="lazyload"></p>
+<h4 id="5、最终层级关系"><a href="#5、最终层级关系" class="headerlink" title="5、最终层级关系"></a>5、最终层级关系</h4><p><img src="https://img-blog.csdnimg.cn/img_convert/56ee6a6f5deca611a2d51714f9b5e19b.png" alt="层级关系"></p>
 <h3 id="二、脚本编写"><a href="#二、脚本编写" class="headerlink" title="二、脚本编写"></a>二、脚本编写</h3><h4 id="1、Inventory脚本"><a href="#1、Inventory脚本" class="headerlink" title="1、Inventory脚本"></a>1、Inventory脚本</h4><p>首先定义一个物品类，用来存放每个物品信息。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">InventoryInfo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Parent;		<span class="comment">//物品属于哪一个物品格</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name;			</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Num;</span><br><span class="line">    <span class="keyword">public</span> Sprite icon;			<span class="comment">//物品图标</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">enum</span> Type				<span class="comment">//用于区分类别，本教程中未使用</span></span><br><span class="line">    &#123;</span><br><span class="line">        Weapon,</span><br><span class="line">        Food</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Type myType;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -298,7 +239,7 @@
 <h4 id="4、Average脚本"><a href="#4、Average脚本" class="headerlink" title="4、Average脚本"></a>4、Average脚本</h4><p>最后是在DragItem中用到的Average脚本。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Average instance;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">bool</span> isLeft;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    instance = gameObject.GetComponent&lt;Average&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Mouse0))</span><br><span class="line">    &#123;</span><br><span class="line">        isLeft = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Mouse1))</span><br><span class="line">    &#123;</span><br><span class="line">        isLeft = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/17cf36e19832494aa57ede112c0fdbb9.gif#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://img-blog.csdnimg.cn/17cf36e19832494aa57ede112c0fdbb9.gif#pic_center" alt="在这里插入图片描述"></p>
 <h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p>Inventory</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Serialization;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"></span><br><span class="line">[<span class="meta">System.Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">InventoryInfo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Parent;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Num;</span><br><span class="line">    <span class="keyword">public</span> Sprite icon;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">enum</span> Type</span><br><span class="line">    &#123;</span><br><span class="line">        Weapon,</span><br><span class="line">        Food</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Type myType;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">InvenInfoList</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;InventoryInfo&gt; inventoryInfo = <span class="keyword">new</span> List&lt;InventoryInfo&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Inventory</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Inventory instance;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> filePath = Application.streamingAssetsPath +<span class="string">&quot;/GameData/saveData.json&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> InvenInfoList list = <span class="keyword">new</span> InvenInfoList();</span><br><span class="line">    <span class="keyword">public</span> GameObject itemPrefab;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GameObject dragCanvas;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        dragCanvas = GameObject.Find(<span class="string">&quot;DragCanvas&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        instance = GetComponent&lt;Inventory&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果存在存档，读取</span></span><br><span class="line">        <span class="keyword">if</span> (File.Exists(filePath))</span><br><span class="line">        &#123;</span><br><span class="line">            LoadByJson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.M))</span><br><span class="line">        &#123;</span><br><span class="line">            SaveByJson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CreateSave</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; transform.childCount; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            InventoryInfo a = <span class="keyword">new</span> InventoryInfo();</span><br><span class="line">            GameObject slot = transform.GetChild(i).gameObject;</span><br><span class="line">            <span class="keyword">if</span> (slot.transform.childCount != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Item tmp =slot.transform.GetChild(<span class="number">0</span>).GetComponent&lt;Item&gt;();</span><br><span class="line">                a.Parent = slot.name;</span><br><span class="line">                a.Name = tmp.Info.Name;</span><br><span class="line">                a.Num = tmp.Info.Num;</span><br><span class="line">                a.icon = tmp.Info.icon;</span><br><span class="line">                a.myType = tmp.Info.myType;</span><br><span class="line"></span><br><span class="line">                list.inventoryInfo.Add(a);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SaveByJson</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        list.inventoryInfo.Clear();</span><br><span class="line">        </span><br><span class="line">        CreateSave();</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> json = JsonUtility.ToJson(list,<span class="literal">true</span>);</span><br><span class="line">        </span><br><span class="line">        StreamWriter sw = <span class="keyword">new</span> StreamWriter(filePath);</span><br><span class="line">        sw.Write(json);</span><br><span class="line">        sw.Close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">LoadByJson</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> json;</span><br><span class="line"></span><br><span class="line">        StreamReader sr = <span class="keyword">new</span> StreamReader(filePath);</span><br><span class="line">        json = sr.ReadToEnd();</span><br><span class="line">        sr.Close();</span><br><span class="line"></span><br><span class="line">         list = JsonUtility.FromJson&lt;InvenInfoList&gt;(json);</span><br><span class="line"></span><br><span class="line">        SetGame();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SetGame</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; list.inventoryInfo.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            InventoryInfo a = <span class="keyword">new</span> InventoryInfo();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; transform.childCount; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                GameObject slot = transform.GetChild(j).gameObject;</span><br><span class="line">                <span class="comment">//读取到当前物品格信息，写入</span></span><br><span class="line">                <span class="keyword">if</span> (slot.name == list.inventoryInfo[i].Parent)</span><br><span class="line">                &#123;</span><br><span class="line">                    GameObject it = Instantiate(itemPrefab, slot.transform, <span class="literal">true</span>);</span><br><span class="line">                    Item tmp =it.GetComponent&lt;Item&gt;();</span><br><span class="line">                    RectTransform rt = it.GetComponent&lt;RectTransform&gt;();</span><br><span class="line">                    rt.offsetMax = <span class="keyword">new</span> Vector2(<span class="number">-5f</span>, <span class="number">-5f</span>);</span><br><span class="line">                    rt.offsetMin = <span class="keyword">new</span> Vector2(<span class="number">5f</span>, <span class="number">5f</span>);</span><br><span class="line">                </span><br><span class="line">                    tmp.Info.Name = list.inventoryInfo[i].Name;</span><br><span class="line">                    tmp.Info.Num = list.inventoryInfo[i].Num;</span><br><span class="line">                    tmp.Info.icon = list.inventoryInfo[i].icon;</span><br><span class="line"></span><br><span class="line">                    Image icon = tmp.GetComponent&lt;Image&gt;();</span><br><span class="line">                    icon.sprite = tmp.Info.icon;</span><br><span class="line"></span><br><span class="line">                    tmp.Info.myType = list.inventoryInfo[i].myType;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">CheckInInventoryUI</span>(<span class="params">Vector3 position</span>)<span class="comment">//此处这个位置是要传输进来的位置</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; transform.childCount; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            RectTransform t = transform.GetChild(i).transform <span class="keyword">as</span> RectTransform;<span class="comment">//强制类型转换</span></span><br><span class="line">            <span class="keyword">if</span> (RectTransformUtility.RectangleContainsScreenPoint(t, position))<span class="comment">//判断当前位置是否物品栏里</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -311,802 +252,4 @@
 <p>Average</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Average</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Average instance;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> isLeft;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        instance = gameObject.GetComponent&lt;Average&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Mouse0))</span><br><span class="line">        &#123;</span><br><span class="line">            isLeft = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Mouse1))</span><br><span class="line">        &#123;</span><br><span class="line">            isLeft = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ikd8VTICWr6vLqa-IMD7Sw">Unity包资源</a> 提取码: a53r </p>
-
-        </article>
-
-        
-            
-  <div class="nexmoe-post-copyright">
-    <strong>Author：</strong>John Doe<br>
-    
-    <strong>Link：</strong><a href="http://example.com/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;11&#x2F;15&#x2F;Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;11&#x2F;15&#x2F;Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD&#x2F;</a><br>
-
-    
-      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
-    
-  </div>
-
-
-        
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-    
-    
-</div>
-
-    <div class="nexmoe-post-footer">
-        <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
-<script>
-    // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
-        appKey: '3bqCsovpyfTPHUzTHovd3V3V'
-    })
-</script>
-</section>
-    </div>
-</div>
-
-
-        <div class="nexmoe-post-right">
-          
-            <div class="nexmoe-fixed">
-              <div class="nexmoe-tool">
-                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-              </div>
-            </div>
-          
-        </div>
-    </div>
-  </div>
-  <div id="nexmoe-pendant">
-    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
-        
-            <div class="nexmoe-pd-item">
-                <div class="clock">
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="needle" id="hours"></div>
-        <div class="needle" id="minutes"></div>
-        <div class="needle" id="seconds"></div>
-        <div class="clock_logo">
-
-        </div>
-
-    </div>
-<style>
-    .clock {
-        background-color: #ffffff;
-        width: 70vw;
-        height: 70vw;
-        max-width: 70vh;
-        max-height: 70vh;
-        border: solid 2.8vw #242424;
-        position: relative;
-        overflow: hidden;
-        border-radius: 50%;
-        box-sizing: border-box;
-        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
-        zoom:0.2
-    }
-
-    .memory {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .memory:nth-child(1) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
-    }
-
-    .memory:nth-child(2) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(3) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(4) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(5) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(6) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
-    }
-
-    .memory:nth-child(7) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(8) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(9) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(10) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(11) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
-    }
-
-    .memory:nth-child(12) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(13) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(14) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(15) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(16) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
-    }
-
-    .memory:nth-child(17) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(18) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(19) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(20) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(21) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
-    }
-
-    .memory:nth-child(22) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(23) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(24) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(25) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(26) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
-    }
-
-    .memory:nth-child(27) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(28) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(29) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(30) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(31) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
-    }
-
-    .memory:nth-child(32) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(33) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(34) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(35) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(36) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
-    }
-
-    .memory:nth-child(37) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(38) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(39) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(40) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(41) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
-    }
-
-    .memory:nth-child(42) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(43) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(44) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(45) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(46) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
-    }
-
-    .memory:nth-child(47) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(48) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(49) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(50) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(51) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
-    }
-
-    .memory:nth-child(52) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(53) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(54) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(55) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(56) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
-    }
-
-    .memory:nth-child(57) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(58) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(59) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(60) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
-    }
-
-    .needle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .needle#hours {
-        background-color: #1f1f1f;
-        width: 4%;
-        height: 30%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#hours.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#hours:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#minutes {
-        background-color: #1f1f1f;
-        width: 2%;
-        height: 45%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#minutes.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#minutes:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#seconds {
-        background-color: #cb2f2f;
-        width: 1%;
-        height: 50%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#seconds.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#seconds:after {
-        content: '';
-        background-color: #cb2f2f;
-        width: 2.5vw;
-        height: 2.5vw;
-        max-width: 2.5vh;
-        max-height: 2.5vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .clock_logo{
-        width: 10vw;
-        height: 10vw;
-        max-width: 10vh;
-        max-height: 10vh;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    @media (min-width: 100vh) {
-        .clock {
-            border: solid 2.8vh #242424;
-            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
-        }
-    }
-
-</style>
-
-
-
-
-
-            </div>
-        
-            <div class="nexmoe-pd-item">
-                <div class="qweather" >
-    <div id="he-plugin-standard"></div>
-    <div class="qweather-logo">
-
-    </div>
-
-</div>
-<style>
-    .qweather{
-        position: relative;
-    }
-    .qweather-logo{
-        position: absolute;
-        right: 0;
-        top: -15px;
-        width: 40px;
-        height: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-</style>
-<script>
-  WIDGET = {
-    "CONFIG": {
-      "layout": "2",
-      "width": "260",
-      "height": "220",
-      "background": "5",
-      "dataColor": "e67249",
-      "borderRadius": "15",
-      "key": "f74d1e1690e6432d801e97fa2f05a162"
-    }
-  }
-</script>
-<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
-
-            </div>
-        
-</div>
-<style>
-    .nexmoe-pd {
-        left: auto;
-        top: 40px;
-        right: 0;
-    }
-    .nexmoe-pd-item{
-       display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-</style>
-
-  </div>
-  <script src="https://lib.baomitu.com/lazysizes/5.1.0/lazysizes.min.js"></script>
-<script src="https://lib.baomitu.com/highlight.js/10.0.0/highlight.min.js"></script>
-<script src="https://lib.baomitu.com/mdui/0.4.3/js/mdui.min.js"></script>
-
-<script>
-	hljs.initHighlightingOnLoad();
-</script>
-
-<script src="https://lib.baomitu.com/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
-
-
-<script src="/js/app.js?v=1714707678531"></script>
-
-<script src="https://lib.baomitu.com/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-<script>
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 160,
-		margins: 10,
-	});
-</script>
-
-  
-
-
-
-
-
-<!-- hexo injector body_end start -->
-<script src="/js/clock.js"></script>
-
-<script src="https://lib.baomitu.com/clipboard.js/2.0.8/clipboard.min.js"></script>
-
-<script src="/lib/codeBlock/codeBlockFuction.js"></script>
-
-<script src="/lib/codeBlock/codeLang.js"></script>
-
-<script src="/lib/codeBlock/codeCopy.js"></script>
-
-<script src="/lib/codeBlock/codeShrink.js"></script>
-
-<link rel="stylesheet" href="/lib/codeBlock/matery.css">
-
-<script src="/js/webapp.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<script src="/js/search.js"></script>
-<!-- hexo injector body_end end --></body>
-</html>
-
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/250cb4aa.js","daovoice")</script>
-<script>
-  daovoice('init', {
-    app_id: "250cb4aa"
-  });
-  daovoice('update');
-</script>
-
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/">http://example.com/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/05/02/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">Unity使用JSON存储实现背包功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81PlayerPrefs"><span class="toc-number">1.1.1.</span> <span class="toc-text">一、PlayerPrefs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AF%BB%E5%8F%96%E6%99%AE%E9%80%9A%E6%96%87%E6%9C%AC-TextAsset"><span class="toc-number">1.1.2.</span> <span class="toc-text">二、读取普通文本:TextAsset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81JSON"><span class="toc-number">1.1.3.</span> <span class="toc-text">三、JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81XML%E5%82%A8%E5%AD%98"><span class="toc-number">1.1.4.</span> <span class="toc-text">四、XML储存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81Splite"><span class="toc-number">1.1.5.</span> <span class="toc-text">五、Splite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">具体实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E5%8C%85UI%E7%95%8C%E9%9D%A2%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.1.</span> <span class="toc-text">一、背包UI界面创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BACanvas%E7%94%BB%E5%B8%83"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1、创建Canvas画布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2、添加组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E5%88%9B%E5%BB%BA%E7%89%A9%E5%93%81%E6%A0%BC"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">3、创建物品格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BAItem"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">4、创建Item</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E6%9C%80%E7%BB%88%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">5、最终层级关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99"><span class="toc-number">1.2.2.</span> <span class="toc-text">二、脚本编写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81Inventory%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1、Inventory脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JsonUtility%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">JsonUtility支持的数据类型。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81Item%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2、Item脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81DragItem%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">3、DragItem脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81Average%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">4、Average脚本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.</span> <span class="toc-text">完整代码</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/02/hello-world/" title="Hello World">Hello World</a><time datetime="2024-05-02T13:30:31.139Z" title="Created 2024-05-02 21:30:31">2024-05-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/15/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/" title="Untitled">Untitled</a><time datetime="2023-11-15T15:08:16.149Z" title="Created 2023-11-15 23:08:16">2023-11-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
