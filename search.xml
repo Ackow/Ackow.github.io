@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Unity使用JSON存储实现背包功能</title>
-    <url>/2024/05/03/Unity%E4%BD%BF%E7%94%A8JSON%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E8%83%8C%E5%8C%85%E5%8A%9F%E8%83%BD/</url>
+    <url>/2024/05/03/UnityJsonInventory/</url>
     <content><![CDATA[<h1 id="Unity使用JSON存储实现背包功能"><a href="#Unity使用JSON存储实现背包功能" class="headerlink" title="Unity使用JSON存储实现背包功能"></a>Unity使用JSON存储实现背包功能</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。</p>
 <h3 id="一、PlayerPrefs"><a href="#一、PlayerPrefs" class="headerlink" title="一、PlayerPrefs"></a>一、PlayerPrefs</h3><p>这是Unity自带的一种用于本地持久化保存与读取的一个类,采用以键值对的形式将数据保存在文件中。</p>
 <p><img src="https://ackow.github.io/img/2024/05/03/UnityJsonInventory/1.png" alt="PlayerPrefs"></p>
