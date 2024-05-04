@@ -21,7 +21,7 @@
     <title>Hexo+Cloudflare搭建自己的博客</title>
     <url>/2024/05/05/HexoAndCloudFlare/</url>
     <content><![CDATA[<h1 id="使用Hexo-Cloudflare搭建自己的博客"><a href="#使用Hexo-Cloudflare搭建自己的博客" class="headerlink" title="使用Hexo+Cloudflare搭建自己的博客"></a>使用Hexo+Cloudflare搭建自己的博客</h1><h2 id="一、Hexo准备"><a href="#一、Hexo准备" class="headerlink" title="一、Hexo准备"></a>一、Hexo准备</h2><h3 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装<a href="https://nodejs.org/en">Node.js</a></h3><p>进入官网，下载LTS长期支持版本。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/1.png" alt="Node.js下载"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/1.png" alt="Node.js下载"></p>
 <p>安装完可以用下列命令判断是否安装成功。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容v20.12.2</span></span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容10.5.0</span></span><br></pre></td></tr></table></figure>
 
@@ -29,7 +29,7 @@
 
 <h3 id="3、安装hexo框架"><a href="#3、安装hexo框架" class="headerlink" title="3、安装hexo框架"></a>3、安装hexo框架</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hexo -v	验证是否安装成功</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/2024/05/04/HexoAndCloudflare/2.png" alt="hexo框架安装"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/2.png" alt="hexo框架安装"></p>
 <h3 id="4、构建hexo"><a href="#4、构建hexo" class="headerlink" title="4、构建hexo"></a>4、构建hexo</h3><p>在自己想要存放文件的位置建一个文件夹,然后进入到新建的博客文件夹。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init #初始化默认文件</span><br><span class="line"></span><br><span class="line">hexo -s</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在localhost:4000就可以看到我们的博客内容了</span></span><br><span class="line"></span><br><span class="line">hexo new post &quot;MyFirstBlog&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在<span class="built_in">source</span>/_post 文件夹下就生成了这一篇博客</span></span><br><span class="line"></span><br><span class="line">hexo -g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">构建文件</span></span><br></pre></td></tr></table></figure>
 
@@ -69,19 +69,19 @@
 
 <p>部署完成之后就可以通过<code>YourGitHubName</code>.github.io访问博客了</p>
 <h2 id="三、CloudFlare"><a href="#三、CloudFlare" class="headerlink" title="三、CloudFlare"></a>三、CloudFlare</h2><h3 id="1、注册CloudFlare"><a href="#1、注册CloudFlare" class="headerlink" title="1、注册CloudFlare"></a>1、注册CloudFlare</h3><p>注册完成之后，点击左侧的<code>Workers 和 Pages</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/6.png" alt="CLoudFlare"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/6.png" alt="CLoudFlare"></p>
 <p>点击<code>创建应用程序</code>-&gt;<code>Pages</code>-&gt;<code>连接到Git</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/7.png" alt="连接到Git"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/7.png" alt="连接到Git"></p>
 <p>根据下图设置构建设置。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/8.png" alt="构建设置"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/8.png" alt="构建设置"></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo; hexo clean; hexo generate</span><br></pre></td></tr></table></figure>
 
 <h3 id="2、域名"><a href="#2、域名" class="headerlink" title="2、域名"></a>2、域名</h3><p>首先我们需要购买一个自己的域名，我这里以阿里云为例。</p>
 <p>购买域名之后进入<code>域名控制台</code>。</p>
 <p>点击<code>列表</code>-&gt;<code>管理</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/4.png" alt="域名控制台"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/4.png" alt="域名控制台"></p>
 <p>点击<code>DNS修改</code>-&gt;<code>修改DNS服务器</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudflare/5.png" alt="DNS修改"></p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/5.png" alt="DNS修改"></p>
 <p>在CloudFlare中点击<code>网站</code>-&gt;<code>添加站点</code>，填写信息，然后将这里给出的两个DNS地址填入域名控制台里，然后等待十分钟左右。</p>
 <p>在Workers 和 Pages中给项目添加自定义域，即可实现域名更改了。</p>
 ]]></content>
