@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.ackow129.top/2024/05/05/HexoAndCloudFlare/</loc>
+    
+    <lastmod>2024-05-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.ackow129.top/link/index.html</loc>
     
     <lastmod>2024-05-04</lastmod>
@@ -72,6 +81,20 @@
   </url>
   
   <url>
+    <loc>http://blog.ackow129.top/tags/Hexo/</loc>
+    <lastmod>2024-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.ackow129.top/tags/Cloudflare/</loc>
+    <lastmod>2024-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.ackow129.top/tags/Unity/</loc>
     <lastmod>2024-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -89,6 +112,13 @@
   
   <url>
     <loc>http://blog.ackow129.top/categories/Codeforces/</loc>
+    <lastmod>2024-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.ackow129.top/categories/Hexo/</loc>
     <lastmod>2024-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
