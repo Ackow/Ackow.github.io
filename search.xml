@@ -18,82 +18,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo+Cloudflare搭建自己的博客</title>
-    <url>/2024/05/05/HexoAndCloudFlare/</url>
-    <content><![CDATA[<h1 id="使用Hexo-Cloudflare搭建自己的博客"><a href="#使用Hexo-Cloudflare搭建自己的博客" class="headerlink" title="使用Hexo+Cloudflare搭建自己的博客"></a>使用Hexo+Cloudflare搭建自己的博客</h1><h2 id="一、Hexo准备"><a href="#一、Hexo准备" class="headerlink" title="一、Hexo准备"></a>一、Hexo准备</h2><h3 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装<a href="https://nodejs.org/en">Node.js</a></h3><p>进入官网，下载LTS长期支持版本。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/1.png" alt="Node.js下载"></p>
-<p>安装完可以用下列命令判断是否安装成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容v20.12.2</span></span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容10.5.0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、更换源"><a href="#2、更换源" class="headerlink" title="2、更换源"></a>2、更换源</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set strict-ssl false	#关闭ssl验证</span><br><span class="line"></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org	#安装cnpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、安装hexo框架"><a href="#3、安装hexo框架" class="headerlink" title="3、安装hexo框架"></a>3、安装hexo框架</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hexo -v	验证是否安装成功</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/2.png" alt="hexo框架安装"></p>
-<h3 id="4、构建hexo"><a href="#4、构建hexo" class="headerlink" title="4、构建hexo"></a>4、构建hexo</h3><p>在自己想要存放文件的位置建一个文件夹,然后进入到新建的博客文件夹。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init #初始化默认文件</span><br><span class="line"></span><br><span class="line">hexo -s</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在localhost:4000就可以看到我们的博客内容了</span></span><br><span class="line"></span><br><span class="line">hexo new post &quot;MyFirstBlog&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在<span class="built_in">source</span>/_post 文件夹下就生成了这一篇博客</span></span><br><span class="line"></span><br><span class="line">hexo -g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">构建文件</span></span><br></pre></td></tr></table></figure>
-
-<p>更多信息：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>布局(Layout)</strong></p>
-<table>
-<thead>
-<tr>
-<th>布局</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>post</td>
-<td>source&#x2F;_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>source&#x2F;_drafts</td>
-</tr>
-</tbody></table>
-<h2 id="二、GitHUb"><a href="#二、GitHUb" class="headerlink" title="二、GitHUb"></a>二、GitHUb</h2><h3 id="1、仓库创建"><a href="#1、仓库创建" class="headerlink" title="1、仓库创建"></a>1、仓库创建</h3><p>在<code>Github</code>上创建一个仓库，使用<code>[Your Name].github.io</code>进行仓库命名。</p>
-<h3 id="2、hexo安装包"><a href="#2、hexo安装包" class="headerlink" title="2、hexo安装包"></a>2、hexo安装包</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、修改-config-yml"><a href="#3、修改-config-yml" class="headerlink" title="3、修改_config.yml"></a>3、修改_config.yml</h3><p>打开根目录下的_config.yml。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  		<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"> 		<span class="attr">repo:</span> <span class="string">https://[YourToken]@github.com/[YourGitHubName]/[YourGitHubName].github.io.git</span></span><br><span class="line">  		<span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-
-<p><code>[YourToken]</code> ：GitHub上的Personal access tokens。</p>
-<p><code>[YourGitHubName]</code> ：GitHub用户名</p>
-<h3 id="4、部署"><a href="#4、部署" class="headerlink" title="4、部署"></a>4、部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>部署完成之后就可以通过<code>YourGitHubName</code>.github.io访问博客了</p>
-<h2 id="三、CloudFlare"><a href="#三、CloudFlare" class="headerlink" title="三、CloudFlare"></a>三、CloudFlare</h2><h3 id="1、注册CloudFlare"><a href="#1、注册CloudFlare" class="headerlink" title="1、注册CloudFlare"></a>1、注册CloudFlare</h3><p>注册完成之后，点击左侧的<code>Workers 和 Pages</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/6.png" alt="CLoudFlare"></p>
-<p>点击<code>创建应用程序</code>-&gt;<code>Pages</code>-&gt;<code>连接到Git</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/7.png" alt="连接到Git"></p>
-<p>根据下图设置构建设置。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/8.png" alt="构建设置"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo; hexo clean; hexo generate</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、域名"><a href="#2、域名" class="headerlink" title="2、域名"></a>2、域名</h3><p>首先我们需要购买一个自己的域名，我这里以阿里云为例。</p>
-<p>购买域名之后进入<code>域名控制台</code>。</p>
-<p>点击<code>列表</code>-&gt;<code>管理</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/4.png" alt="域名控制台"></p>
-<p>点击<code>DNS修改</code>-&gt;<code>修改DNS服务器</code>。</p>
-<p><img src="/img/2024/05/04/HexoAndCloudFlare/5.png" alt="DNS修改"></p>
-<p>在CloudFlare中点击<code>网站</code>-&gt;<code>添加站点</code>，填写信息，然后将这里给出的两个DNS地址填入域名控制台里，然后等待十分钟左右。</p>
-<p>在Workers 和 Pages中给项目添加自定义域，即可实现域名更改了。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity使用JSON存储实现背包功能</title>
     <url>/2023/11/13/UnityJsonInventory/</url>
     <content><![CDATA[<h1 id="Unity使用JSON存储实现背包功能"><a href="#Unity使用JSON存储实现背包功能" class="headerlink" title="Unity使用JSON存储实现背包功能"></a>Unity使用JSON存储实现背包功能</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Unity有五种常用的存储数据的方法，可以用来存储我们游戏的数据。</p>
@@ -203,6 +127,82 @@
       <tags>
         <tag>Unity</tag>
         <tag>Json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Cloudflare搭建自己的博客</title>
+    <url>/2024/05/05/HexoAndCloudFlare/</url>
+    <content><![CDATA[<h1 id="使用Hexo-Cloudflare搭建自己的博客"><a href="#使用Hexo-Cloudflare搭建自己的博客" class="headerlink" title="使用Hexo+Cloudflare搭建自己的博客"></a>使用Hexo+Cloudflare搭建自己的博客</h1><h2 id="一、Hexo准备"><a href="#一、Hexo准备" class="headerlink" title="一、Hexo准备"></a>一、Hexo准备</h2><h3 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装<a href="https://nodejs.org/en">Node.js</a></h3><p>进入官网，下载LTS长期支持版本。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/1.png" alt="Node.js下载"></p>
+<p>安装完可以用下列命令判断是否安装成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容v20.12.2</span></span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出内容10.5.0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、更换源"><a href="#2、更换源" class="headerlink" title="2、更换源"></a>2、更换源</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set strict-ssl false	#关闭ssl验证</span><br><span class="line"></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org	#安装cnpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、安装hexo框架"><a href="#3、安装hexo框架" class="headerlink" title="3、安装hexo框架"></a>3、安装hexo框架</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hexo -v	验证是否安装成功</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/2.png" alt="hexo框架安装"></p>
+<h3 id="4、构建hexo"><a href="#4、构建hexo" class="headerlink" title="4、构建hexo"></a>4、构建hexo</h3><p>在自己想要存放文件的位置建一个文件夹,然后进入到新建的博客文件夹。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init #初始化默认文件</span><br><span class="line"></span><br><span class="line">hexo -s</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在localhost:4000就可以看到我们的博客内容了</span></span><br><span class="line"></span><br><span class="line">hexo new post &quot;MyFirstBlog&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在<span class="built_in">source</span>/_post 文件夹下就生成了这一篇博客</span></span><br><span class="line"></span><br><span class="line">hexo -g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">构建文件</span></span><br></pre></td></tr></table></figure>
+
+<p>更多信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>布局(Layout)</strong></p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>post</td>
+<td>source&#x2F;_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source&#x2F;_drafts</td>
+</tr>
+</tbody></table>
+<h2 id="二、GitHUb"><a href="#二、GitHUb" class="headerlink" title="二、GitHUb"></a>二、GitHUb</h2><h3 id="1、仓库创建"><a href="#1、仓库创建" class="headerlink" title="1、仓库创建"></a>1、仓库创建</h3><p>在<code>Github</code>上创建一个仓库，使用<code>[Your Name].github.io</code>进行仓库命名。</p>
+<h3 id="2、hexo安装包"><a href="#2、hexo安装包" class="headerlink" title="2、hexo安装包"></a>2、hexo安装包</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、修改-config-yml"><a href="#3、修改-config-yml" class="headerlink" title="3、修改_config.yml"></a>3、修改_config.yml</h3><p>打开根目录下的_config.yml。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  		<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"> 		<span class="attr">repo:</span> <span class="string">https://[YourToken]@github.com/[YourGitHubName]/[YourGitHubName].github.io.git</span></span><br><span class="line">  		<span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<p><code>[YourToken]</code> ：GitHub上的Personal access tokens。</p>
+<p><code>[YourGitHubName]</code> ：GitHub用户名</p>
+<h3 id="4、部署"><a href="#4、部署" class="headerlink" title="4、部署"></a>4、部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>部署完成之后就可以通过<code>YourGitHubName</code>.github.io访问博客了</p>
+<h2 id="三、CloudFlare"><a href="#三、CloudFlare" class="headerlink" title="三、CloudFlare"></a>三、CloudFlare</h2><h3 id="1、注册CloudFlare"><a href="#1、注册CloudFlare" class="headerlink" title="1、注册CloudFlare"></a>1、注册CloudFlare</h3><p>注册完成之后，点击左侧的<code>Workers 和 Pages</code>。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/6.png" alt="CLoudFlare"></p>
+<p>点击<code>创建应用程序</code>-&gt;<code>Pages</code>-&gt;<code>连接到Git</code>。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/7.png" alt="连接到Git"></p>
+<p>根据下图设置构建设置。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/8.png" alt="构建设置"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo; hexo clean; hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、域名"><a href="#2、域名" class="headerlink" title="2、域名"></a>2、域名</h3><p>首先我们需要购买一个自己的域名，我这里以阿里云为例。</p>
+<p>购买域名之后进入<code>域名控制台</code>。</p>
+<p>点击<code>列表</code>-&gt;<code>管理</code>。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/4.png" alt="域名控制台"></p>
+<p>点击<code>DNS修改</code>-&gt;<code>修改DNS服务器</code>。</p>
+<p><img src="/img/2024/05/04/HexoAndCloudFlare/5.png" alt="DNS修改"></p>
+<p>在CloudFlare中点击<code>网站</code>-&gt;<code>添加站点</code>，填写信息，然后将这里给出的两个DNS地址填入域名控制台里，然后等待十分钟左右。</p>
+<p>在Workers 和 Pages中给项目添加自定义域，即可实现域名更改了。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Cloudflare</tag>
       </tags>
   </entry>
 </search>
