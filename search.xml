@@ -102,86 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity基础组件教程-SpriteRenderer</title>
-    <url>/2024/05/14/UnityTutorialSpriteRenderer/</url>
-    <content><![CDATA[<h1>Unity基础组件教程-SpriteRenderer</h1>
-<h2 id="一、SpriteRenderer">一、SpriteRenderer</h2>
-<img src="https://img.ackow129.top/i/2024/05/14/230936.png" width="50%" height="50%">
-<p>1、<code>Sprite</code>:要渲染的精灵。</p>
-<p>2、<code>Color</code>:为精灵图形渲染颜色。</p>
-<p>3、<code>FilpX</code>和<code>FlipY</code>:在相应轴上反转精灵。</p>
-<table>
-<thead>
-<tr>
-<th><img src="https://img.ackow129.top/i/2024/05/15/175347.png"></th>
-<th><img src="https://img.ackow129.top/i/2024/05/15/175347_1.png" ></th>
-</tr>
-</thead>
-</table>
-<p>4、<code>Draw Mode</code>: 精灵渲染器的当前绘制模式。</p>
-<p>5、<code>Mask Interaction</code>:指定精灵如何与遮罩交互。</p>
-<p>6、<code>Sprite Sort Point</code>:指定精灵排序时使用的参考点。</p>
-<p>7、<code>Material</code>:指定精灵的渲染材质。材质控制了精灵的外观，包括颜色、透明度、光照和其他视觉效果。</p>
-<p>8、<code>Additional Settings</code>:</p>
-<p>​	<code>Sorting Layer</code>:指定精灵所在的排序层。排序层决定了精灵的渲染顺序，相同排序层内的精灵可以通过Order in Layer来进一步排序。</p>
-<p>​	<code>Order in Layer</code>:在同一排序层内定义精灵的渲染顺序。数值越大，精灵越靠前渲染。</p>
-<h2 id="二、Draw-Mode">二、Draw Mode</h2>
-<p>1、<code>Simple</code>:默认选项；精灵图像按照其原始尺寸进行绘制；不进行任何缩放或切割操作；适用于需要以原始尺寸显示的精灵。</p>
-<p>2、<code>Sliced</code>:主要用于九宫格切片；适合需要拉伸但保持边缘不变形的图像，例如UI按钮或面板；精灵图像被分割成9个部分：四个角、四条边和中间部分；通过调整中间部分的尺寸，边缘部分保持不变，从而实现无失真的缩放效果；需要精灵图像设置九宫格边界（Sprite Editor中的Border属性）。</p>
-<p>3、<code>Tiled</code>:图像在其边界内进行重复平铺；适用于需要重复模式的背景或图案。；精灵图像不会被拉伸，而是重复绘制以填充给定区域；平铺图像的大小可以通过调整组件的大小来控制。</p>
-<p>每个选项适用于不同的使用场景：</p>
-<ul>
-<li><strong>Simple</strong>适用于固定尺寸的精灵，不需要任何特殊的处理。</li>
-<li><strong>Sliced</strong>适用于UI元素和其他需要动态调整大小但保持边缘完整性的对象。</li>
-<li><strong>Tiled</strong>适用于背景和需要重复模式的图案。</li>
-</ul>
-<p>通过选择合适的<code>Draw Mode</code>，可以更好地控制精灵的渲染效果，满足不同的游戏需求。</p>
-<h2 id="三、Mask-Interaction">三、Mask Interaction</h2>
-<ol>
-<li><strong>None</strong>（无）：
-<ul>
-<li>精灵不受任何遮罩影响。</li>
-<li>无论遮罩如何设置，精灵始终完全可见。</li>
-</ul>
-</li>
-<li><strong>Visible Inside Mask</strong>（遮罩内可见）：
-<ul>
-<li>只有位于遮罩内的部分精灵可见。</li>
-<li>位于遮罩外的部分将被剪裁，不会显示。</li>
-</ul>
-</li>
-<li><strong>Visible Outside Mask</strong>（遮罩外可见）：
-<ul>
-<li>只有位于遮罩外的部分精灵可见。</li>
-<li>位于遮罩内的部分将被剪裁，不会显示。</li>
-</ul>
-</li>
-</ol>
-<h2 id="四、Sprite-Sort-Point">四、Sprite Sort Point</h2>
-<ol>
-<li><strong>Center</strong>（中心点）
-<ul>
-<li>使用精灵的中心点进行排序。</li>
-<li>中心点是精灵矩形边界的几何中心。</li>
-</ul>
-</li>
-<li><strong>Pivot</strong>（枢轴点）
-<ul>
-<li>使用精灵的枢轴点进行排序。</li>
-<li>枢轴点是你在精灵的<code>Sprite Editor</code>中设置的点，可以是精灵矩形边界的任何位置，通常是左下角、右上角、中心或自定义位置。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity使用JSON存储实现背包功能</title>
     <url>/2023/11/13/UnityJsonInventory/</url>
     <content><![CDATA[<h1>Unity使用JSON存储实现背包功能</h1>
@@ -292,6 +212,86 @@
       <tags>
         <tag>Unity</tag>
         <tag>Json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity基础组件教程-SpriteRenderer</title>
+    <url>/2024/05/14/UnityTutorialSpriteRenderer/</url>
+    <content><![CDATA[<h1>Unity基础组件教程-SpriteRenderer</h1>
+<h2 id="一、SpriteRenderer">一、SpriteRenderer</h2>
+<img src="https://img.ackow129.top/i/2024/05/14/230936.png" width="50%" height="50%">
+<p>1、<code>Sprite</code>:要渲染的精灵。</p>
+<p>2、<code>Color</code>:为精灵图形渲染颜色。</p>
+<p>3、<code>FilpX</code>和<code>FlipY</code>:在相应轴上反转精灵。</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://img.ackow129.top/i/2024/05/15/175347.png"></th>
+<th><img src="https://img.ackow129.top/i/2024/05/15/175347_1.png" ></th>
+</tr>
+</thead>
+</table>
+<p>4、<code>Draw Mode</code>: 精灵渲染器的当前绘制模式。</p>
+<p>5、<code>Mask Interaction</code>:指定精灵如何与遮罩交互。</p>
+<p>6、<code>Sprite Sort Point</code>:指定精灵排序时使用的参考点。</p>
+<p>7、<code>Material</code>:指定精灵的渲染材质。材质控制了精灵的外观，包括颜色、透明度、光照和其他视觉效果。</p>
+<p>8、<code>Additional Settings</code>:</p>
+<p>​	<code>Sorting Layer</code>:指定精灵所在的排序层。排序层决定了精灵的渲染顺序，相同排序层内的精灵可以通过Order in Layer来进一步排序。</p>
+<p>​	<code>Order in Layer</code>:在同一排序层内定义精灵的渲染顺序。数值越大，精灵越靠前渲染。</p>
+<h2 id="二、Draw-Mode">二、Draw Mode</h2>
+<p>1、<code>Simple</code>:默认选项；精灵图像按照其原始尺寸进行绘制；不进行任何缩放或切割操作；适用于需要以原始尺寸显示的精灵。</p>
+<p>2、<code>Sliced</code>:主要用于九宫格切片；适合需要拉伸但保持边缘不变形的图像，例如UI按钮或面板；精灵图像被分割成9个部分：四个角、四条边和中间部分；通过调整中间部分的尺寸，边缘部分保持不变，从而实现无失真的缩放效果；需要精灵图像设置九宫格边界（Sprite Editor中的Border属性）。</p>
+<p>3、<code>Tiled</code>:图像在其边界内进行重复平铺；适用于需要重复模式的背景或图案。；精灵图像不会被拉伸，而是重复绘制以填充给定区域；平铺图像的大小可以通过调整组件的大小来控制。</p>
+<p>每个选项适用于不同的使用场景：</p>
+<ul>
+<li><strong>Simple</strong>适用于固定尺寸的精灵，不需要任何特殊的处理。</li>
+<li><strong>Sliced</strong>适用于UI元素和其他需要动态调整大小但保持边缘完整性的对象。</li>
+<li><strong>Tiled</strong>适用于背景和需要重复模式的图案。</li>
+</ul>
+<p>通过选择合适的<code>Draw Mode</code>，可以更好地控制精灵的渲染效果，满足不同的游戏需求。</p>
+<h2 id="三、Mask-Interaction">三、Mask Interaction</h2>
+<ol>
+<li><strong>None</strong>（无）：
+<ul>
+<li>精灵不受任何遮罩影响。</li>
+<li>无论遮罩如何设置，精灵始终完全可见。</li>
+</ul>
+</li>
+<li><strong>Visible Inside Mask</strong>（遮罩内可见）：
+<ul>
+<li>只有位于遮罩内的部分精灵可见。</li>
+<li>位于遮罩外的部分将被剪裁，不会显示。</li>
+</ul>
+</li>
+<li><strong>Visible Outside Mask</strong>（遮罩外可见）：
+<ul>
+<li>只有位于遮罩外的部分精灵可见。</li>
+<li>位于遮罩内的部分将被剪裁，不会显示。</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、Sprite-Sort-Point">四、Sprite Sort Point</h2>
+<ol>
+<li><strong>Center</strong>（中心点）
+<ul>
+<li>使用精灵的中心点进行排序。</li>
+<li>中心点是精灵矩形边界的几何中心。</li>
+</ul>
+</li>
+<li><strong>Pivot</strong>（枢轴点）
+<ul>
+<li>使用精灵的枢轴点进行排序。</li>
+<li>枢轴点是你在精灵的<code>Sprite Editor</code>中设置的点，可以是精灵矩形边界的任何位置，通常是左下角、右上角、中心或自定义位置。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>
