@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenGL学习记录01</title>
+    <url>/2024/07/06/OpenGL-GLFW01/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL,GLFW</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+Cloudflare搭建自己的博客</title>
     <url>/2024/05/05/HexoAndCloudFlare/</url>
     <content><![CDATA[]]></content>
@@ -21,17 +32,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL学习记录01</title>
-    <url>/2024/07/06/OpenGL-GLFW01/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>OpenGL,GLFW</tag>
       </tags>
   </entry>
   <entry>
