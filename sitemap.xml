@@ -146,6 +146,13 @@
 
   
   <url>
+    <loc>http://blog.ackow129.top/tags/Codeforces/</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.ackow129.top/tags/Hexo/</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -154,13 +161,6 @@
   
   <url>
     <loc>http://blog.ackow129.top/tags/Cloudflare/</loc>
-    <lastmod>2024-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.ackow129.top/tags/Codeforces/</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -225,14 +225,14 @@
 
   
   <url>
-    <loc>http://blog.ackow129.top/categories/Hexo/</loc>
+    <loc>http://blog.ackow129.top/categories/Codeforces/</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blog.ackow129.top/categories/Codeforces/</loc>
+    <loc>http://blog.ackow129.top/categories/Hexo/</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
