@@ -24,18 +24,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenGL学习记录01</title>
-    <url>/2024/07/06/OpenGL-GLFW01/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-        <tag>GLFW</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lambert光照模型</title>
     <url>/2024/07/26/Lambert%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[]]></content>
@@ -45,6 +33,18 @@
       <tags>
         <tag>Unity</tag>
         <tag>Shader</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenGL学习记录01</title>
+    <url>/2024/07/06/OpenGL-GLFW01/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>GLFW</tag>
       </tags>
   </entry>
   <entry>
