@@ -84,6 +84,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity的包含文件</title>
+    <url>/2024/07/26/Unity%E7%9A%84%E5%8C%85%E5%90%AB%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>Shader</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity使用JSON存储实现背包功能</title>
     <url>/2023/11/13/UnityJsonInventory/</url>
     <content><![CDATA[]]></content>
@@ -93,6 +105,17 @@
       <tags>
         <tag>Unity</tag>
         <tag>Json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何制作一个Unity2D闯关游戏（一）</title>
+    <url>/2023/08/18/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -108,41 +131,48 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity的包含文件</title>
-    <url>/2024/07/26/Unity%E7%9A%84%E5%8C%85%E5%90%AB%E6%96%87%E4%BB%B6/</url>
+    <title>如何制作一个Unity2D闯关游戏（三）</title>
+    <url>/2023/08/19/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Unity</category>
       </categories>
       <tags>
         <tag>Unity</tag>
-        <tag>Shader</tag>
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/11/13/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <title>如何制作一个Unity2D闯关游戏（二）</title>
+    <url>/2023/08/18/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/11/13/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <title>如何制作一个Unity2D闯关游戏（五）</title>
+    <url>/2023/08/22/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%BA%94%EF%BC%89/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/11/13/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <title>如何制作一个Unity2D闯关游戏（四）</title>
+    <url>/2023/08/21/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2024/11/13/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2024/11/13/%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAUnity2D%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
   </entry>
   <entry>
     <title>灯光阴影</title>
